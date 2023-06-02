@@ -1,0 +1,71 @@
+・DB設計
+
+１．trn_posts
+	ID：post_id
+	名前：author_name
+	本文：post_message
+	パスワード：password
+	投稿日時：created_datetime
+	更新日時:updated_datetime	
+	
+	CREATE TABLE 'trn_posts' (
+		post_id INT NOT NULL AUTO_INCREMENT,
+		author_name VARCHAR(256) NOT NULL,
+		post_message TEXT NOT NULL,
+		password VARCHAR(256),
+		created_datetime DATETIME NOT NULL DEFAULT CURRENT_DATETIME,
+		updated_datetime DATETIME,
+		PRIMARY KEY(post_id)
+		) engine = InnoDB default charset = utf8;
+		
+
+・API設計
+
+1.投稿API
+	POST
+		endpoint：http://localhost:8080/post/insert
+		header：Content-Type:application/json
+		body:{
+			"authorName":"なおや",
+			"postMessage":"本文",
+			"password":"pw",
+			}
+		
+2,一覧取得API
+	GET
+		endpoint:http://localhost:8080/post/list
+		response:{
+			"code":"200",
+			"message":"成功",
+			"count":100,
+			"postList":	[
+				{
+					"postId": 1,
+					"authorName":"なおや",
+					"postMessage":"aa",
+					"createdDatetime："yyyy年MM月dd日 hh時mm分ss秒",
+					"updateDatetime："yyyy年MM月dd日 hh時mm分ss秒"					
+				},
+			]		
+			
+		}
+		
+3,更新API
+	POST
+		endpoint：http://localhost:8080/post/update
+		header：Content-Type:application/json
+		body:{
+			"postId":1,
+			"authorName";"あい",
+			"postMessage":"ii",
+			"password":"ab",
+			}
+			
+4,削除API
+	POST
+		endpoint:http://localhost:8080/post/delete
+		header:Content-Type:application/json
+		body:{
+			"postId":1,
+			"password":"aa"
+			}
