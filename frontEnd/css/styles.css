@@ -68,12 +68,88 @@ header {
     padding: 50px 10%;
 }
 
-.top_latest_container {
+.content_container {
     width: 100%;
     padding: 16px 32px;
     border: 2px solid black;
 }
 
-.top_latest_container h2 {
+.content_container h2,
+.content_container h3 {
+    border-bottom: 1px solid black;
+    margin-bottom: 16px;
+}
+
+.posts_wrapper {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+}
+
+.post_box {
+    width: 100%;
     border-bottom: 1px dashed black;
+}
+
+.post_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.post_id_name_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.post_id,
+.post_name,
+.post_datetime_area {
+    padding: 4px 8px;
+}
+
+.post_datetime_area p {
+    color: #9a9a9a;
+    font-size: 12px;
+}
+
+.post_body {
+    width: 100%;
+    padding: 8px 4px;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+.post_actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+}
+
+.content_container label {
+    width: 100%;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.content_container label input,
+.content_container label textarea {
+    width: 100%;
+    display: block;
+}
+
+.content_container label textarea {
+    height: 200px;
+}
+
+button {
+    width: 120px;
+    height: 30px;
 }
