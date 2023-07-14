@@ -1,11 +1,10 @@
 package jp.co.netboard.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jp.co.netboard.request.InsertPostRequest;
+import jp.co.netboard.service.InsertPostService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import jp.co.netboard.request.InsertPostRequest;
-import jp.co.netboard.service.InsertPostService;
 
 
 @RestController
