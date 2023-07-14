@@ -1,0 +1,10 @@
+###
+POST http://localhost:8080/post/insert
+Content-Type: application/json
+
+
+{
+"authorName":"なおや",
+"postMessage":"本文",
+"password":"pw"
+}
