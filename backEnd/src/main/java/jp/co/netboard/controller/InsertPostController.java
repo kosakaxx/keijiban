@@ -15,8 +15,8 @@ public class InsertPostController {
     @PostMapping(value = "/post/insert",
             produces = {"application/json"},
             consumes = {"application/json"})
-    public String insertPost (@RequestBody InsertPostRequest request) throws Exception{
-        InsertPostService  insertPostService = new InsertPostService();
+    public String insertPost(@RequestBody InsertPostRequest request) throws Exception {
+        InsertPostService insertPostService = new InsertPostService();
         return insertPostService.insertPost(request);
     }
 }

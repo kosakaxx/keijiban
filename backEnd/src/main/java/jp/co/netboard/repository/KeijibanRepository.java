@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface  KeijibanRepository extends JpaRepository<KeijibanEntity, Integer>{
+public interface KeijibanRepository extends JpaRepository<KeijibanEntity, Integer> {
 }
