@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS keijiban.trn_posts
     author_name      VARCHAR(256) NOT NULL,
     post_message     TEXT         NOT NULL,
     password         VARCHAR(256),
-    created_datetime DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_datetime DATETIME     DEFAULT CURRENT_TIMESTAMP,
     updated_datetime DATETIME,
     PRIMARY KEY (post_id)
 ) engine = InnoDB

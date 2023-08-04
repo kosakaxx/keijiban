@@ -40,12 +40,12 @@ public class KeijibanEntity {
     /**
      * 投稿日時
      */
-    @Column(name = "create_date")
-    private Date createDate;
+    @Column(name = "created_datetime")
+    private Date createdDatetime;
 
     /**
      * 更新日時
      */
-    @Column(name = "update_date")
-    private Date updateDate;
+    @Column(name = "updated_datetime")
+    private Date updatedDatetime;
 }
