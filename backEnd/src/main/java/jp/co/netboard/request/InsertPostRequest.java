@@ -8,11 +8,11 @@ import javax.validation.constraints.NotBlank;
 public class InsertPostRequest {
 
     //投稿者名
-    @NotBlank
+    @NotBlank(message = "必須項目です")
     private String authorName;
 
     //本文
-    @NotBlank
+    @NotBlank(message = "必須項目です")
     private String postMessage;
 
     //パスワード
