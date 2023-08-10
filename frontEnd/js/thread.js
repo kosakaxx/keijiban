@@ -23,7 +23,7 @@ const sendPost = async () => {
         password: pass
     }
 
-    const response = await fetch('http://localhost:8080/post/insert', {
+    await fetch('http://localhost:8080/post/insert', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
