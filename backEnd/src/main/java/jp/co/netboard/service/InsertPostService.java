@@ -17,7 +17,7 @@ public class InsertPostService {
 
     public String insertPost(InsertPostRequest request) {
         KeijibanEntity keijibanEntity = new KeijibanEntity();
-        keijibanEntity.setUserName(request.getAuthorName());
+        keijibanEntity.setAuthorName(request.getAuthorName());
         keijibanEntity.setPostMessage(request.getPostMessage());
         keijibanEntity.setPassword(request.getPassword());
         keijibanEntity.setCreatedDatetime(new Date());
