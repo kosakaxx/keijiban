@@ -12,7 +12,7 @@ import java.util.Date;
 public class InsertPostService {
 
     @Autowired
-    KeijibanRepository keijibanRepository;
+    private KeijibanRepository keijibanRepository;
 
 
     public String insertPost(InsertPostRequest request) {
@@ -21,6 +21,7 @@ public class InsertPostService {
         keijibanEntity.setPostMessage(request.getPostMessage());
         keijibanEntity.setPassword(request.getPassword());
         keijibanEntity.setCreatedDatetime(new Date());
+
 
         try {
             keijibanRepository.save(keijibanEntity);

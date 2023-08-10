@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class InsertPostController {
 
     @Autowired
-    InsertPostService insertPostService;
+    private InsertPostService insertPostService;
 
     @PostMapping(value = "/post/insert",
             produces = {"application/json"},
