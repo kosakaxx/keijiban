@@ -23,13 +23,18 @@ const sendPost = async () => {
         password: pass
     }
 
-    const res = await fetch('http://localhost:8080/post/insert', {
+    const response = await fetch('http://localhost:8080/post/insert', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(requestBody)
     })
-
-    console.log(res)
+        .then(res => res.json())
+        .then(json => {
+            alert(`投稿に成功しました, response: ${json}`)
+        })
+        .catch(err => {
+            alert(`投稿に失敗しました, response: ${err}`)
+        })
 }
