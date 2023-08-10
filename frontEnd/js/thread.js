@@ -25,6 +25,9 @@ const sendPost = async () => {
 
     const res = await fetch('http://localhost:8080/post/insert', {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(requestBody)
     })
 
