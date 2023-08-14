@@ -15,13 +15,13 @@ public class InsertPostService {
     private KeijibanRepository keijibanRepository;
 
 
-    public String insertPost(InsertPostRequest request) throws Exception {
+    public String insertPost(InsertPostRequest request) {
         KeijibanEntity keijibanEntity = new KeijibanEntity();
         keijibanEntity.setAuthorName(request.getAuthorName());
         keijibanEntity.setPostMessage(request.getPostMessage());
         keijibanEntity.setPassword(request.getPassword());
         keijibanEntity.setCreatedDatetime(new Date());
-
+        
         keijibanRepository.save(keijibanEntity);
         return "投稿に成功しました";
     }

@@ -3,13 +3,11 @@ package jp.co.netboard.controller;
 import jp.co.netboard.request.InsertPostRequest;
 import jp.co.netboard.service.InsertPostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
 
 @RestController
@@ -23,11 +21,6 @@ public class InsertPostController {
             produces = {"application/json"},
             consumes = {"application/json"})
     public String insertPost(@Validated @RequestBody InsertPostRequest request) {
-        try {
-            return insertPostService.insertPost(request);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return insertPostService.insertPost(request);
     }
 }
