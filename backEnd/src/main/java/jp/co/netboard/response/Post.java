@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class Posts {
+public class Post {
 
     /**
      * ID

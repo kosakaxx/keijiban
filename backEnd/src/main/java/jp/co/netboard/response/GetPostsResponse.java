@@ -9,7 +9,7 @@ public class GetPostsResponse {
     /**
      * 加点履歴リスト
      */
-    public List<Posts> postList;
+    public List<Post> postList;
 
     /**
      * 記事数
