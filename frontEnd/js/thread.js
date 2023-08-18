@@ -68,6 +68,7 @@ const getList = async () => {
           })
             .then((res) => res.json())
             .then((json) => {
+              location.reload()
               alert(json.message)
             })
             .catch((err) => {
@@ -117,6 +118,7 @@ const sendPost = async () => {
   })
     .then((res) => res.json())
     .then((json) => {
+      location.reload()
       alert(json.message)
     })
     .catch((err) => {
@@ -146,6 +148,7 @@ const updatePost = async () => {
   })
     .then((res) => res.json())
     .then((json) => {
+      location.reload()
       alert(json.message)
     })
     .catch((err) => {
