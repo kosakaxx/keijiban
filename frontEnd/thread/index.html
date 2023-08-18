@@ -50,6 +50,34 @@
 
         </div>
       </div>
+
+      <div class="content_container" style="margin-top: 24px">
+        <h3>投稿編集</h3>
+
+        <label>
+          パスワード
+          <input type="text" name="edit_post_id" id="edit_post_id"/>
+        </label>
+
+        <label>
+          名前
+          <input type="text" name="edit_author_name" id="edit_author_name"/>
+        </label>
+
+        <label>
+          本文
+          <textarea name="edit_post_message" id="edit_post_message"></textarea>
+        </label>
+
+        <label>
+          パスワード
+          <input type="password" name="edit_password" id="edit_password"/>
+        </label>
+
+        <div class="post_actions">
+          <button type="button" onclick="updatePost()">投稿</button>
+        </div>
+      </div>
     </main>
 
     <script src="../js/thread.js">

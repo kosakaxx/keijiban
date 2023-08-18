@@ -40,11 +40,6 @@ const getList = async () => {
         const postActions = document.createElement('div')
         postActions.classList.add('post_actions')
 
-        const editButton = document.createElement('button')
-        editButton.setAttribute('type', 'button')
-        editButton.innerText = '編集'
-        editButton.onclick = async () => {
-        }
 
         const deleteButton = document.createElement('button')
         deleteButton.setAttribute('type', 'button')
@@ -59,7 +54,6 @@ const getList = async () => {
         header.appendChild(idName)
         header.appendChild(datetimeArea)
 
-        postActions.appendChild(editButton)
         postActions.appendChild(deleteButton)
 
         box.appendChild(header)
@@ -101,5 +95,37 @@ const sendPost = async () => {
     console.log(response)
 
     alert(`投稿に成功しました。`);
+  }
+}
+
+const updatePost = async () => {
+  const id = document.getElementById('edit_post_id').value
+  const author = document.getElementById('edit_author_name').value
+  const message = document.getElementById('edit_post_message').value
+  const pass = document.getElementById('edit_password').value
+
+  const requestBody = {
+    postId: id,
+    authorName: author,
+    postMessage: message,
+    password: pass
+  }
+
+  const response = await fetch('http://localhost:8080/post/update', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  })
+    .then((res) => res.json())
+    .catch((err) => {
+      alert(`更新に失敗しました。エラー：${err.message}`);
+    })
+
+  if (response.code === 200) {
+    console.log(response)
+
+    alert(`更新に成功しました。`);
   }
 }
