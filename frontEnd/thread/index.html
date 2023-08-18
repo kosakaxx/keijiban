@@ -1,113 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>BBS(β)</title>
-  <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-<header>
-  <h1 class="header_title">BBS(β)</h1>
+  <head>
+    <meta charset="UTF-8">
+    <title>BBS(β)</title>
+    <link rel="stylesheet" href="../css/styles.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="header_title">BBS(β)</h1>
 
-  <nav class="header_menu_wrapper">
-    <ul class="header_menu_ul">
-      <li><a href="../index.html">TOP</a></li>
-      <li><a href="../threadList/index.html">スレッド一覧</a></li>
-      <li><a href="../login/index.html">ログイン</a></li>
-      <li><a href="../register/index.html">新規登録</a></li>
-    </ul>
-  </nav>
-</header>
+      <nav class="header_menu_wrapper">
+        <ul class="header_menu_ul">
+          <li><a href="../index.html">TOP</a></li>
+          <li><a href="../threadList/index.html">スレッド一覧</a></li>
+          <li><a href="../login/index.html">ログイン</a></li>
+          <li><a href="../register/index.html">新規登録</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<main class="main_container">
-  <div class="content_container" style="margin-bottom: 24px">
-    <h3>新規投稿</h3>
+    <main class="main_container">
+      <div class="content_container" style="margin-bottom: 24px">
+        <h3>新規投稿</h3>
 
-    <label>
-      名前
-       <input type="text" name="author_name" id="author_name" />
-    </label>
+        <label>
+          名前
+          <input type="text" name="author_name" id="author_name"/>
+        </label>
 
-    <label>
-      本文
-      <textarea name="post_message" id="post_message"></textarea>
-    </label>
+        <label>
+          本文
+          <textarea name="post_message" id="post_message"></textarea>
+        </label>
 
-    <label>
-      編集パスワード
-      <input type="password" name="password" id="password" />
-    </label>
-
-    <div class="post_actions">
-      <button type="button" onclick="sendPost()">投稿</button>
-    </div>
-  </div>
-
-  <div class="content_container">
-    <h2>メインスレッド</h2>
-
-    <div class="posts_wrapper">
-      <div class="post_box">
-        <div class="post_header">
-          <div class="post_id_name_wrapper">
-            <p class="post_id">
-              1：
-            </p>
-
-            <p class="post_name">
-              名無しさん@VIPPER
-            </p>
-          </div>
-
-          <div class="post_datetime_area">
-            <p>投稿日時：2023年06月02日 19時00分59秒</p>
-            <p>更新日時：2023年06月02日 19時00分59秒</p>
-          </div>
-        </div>
-
-        <div class="post_body">
-          あああああああ
-          aaaaaああああ
-        </div>
+        <label>
+          編集パスワード
+          <input type="password" name="password" id="password"/>
+        </label>
 
         <div class="post_actions">
-          <button type="button">編集</button>
-          <button type="button">削除</button>
+          <button type="button" onclick="sendPost()">投稿</button>
         </div>
       </div>
 
-      <div class="post_box">
-        <div class="post_header">
-          <div class="post_id_name_wrapper">
-            <p class="post_id">
-              1：
-            </p>
+      <div class="content_container">
+        <h2>メインスレッド</h2>
 
-            <p class="post_name">
-              名無しさん@VIPPER
-            </p>
-          </div>
+        <div class="posts_wrapper" id="postsWrapper">
 
-          <div class="post_datetime_area">
-            <p>投稿日時：2023年06月02日 19時00分59秒</p>
-            <p>更新日時：2023年06月02日 19時00分59秒</p>
-          </div>
-        </div>
-
-        <div class="post_body">
-          あああああああ
-          aaaaaああああ
-        </div>
-
-        <div class="post_actions">
-          <button type="button">編集</button>
-          <button type="button">削除</button>
         </div>
       </div>
-    </div>
-  </div>
-</main>
+    </main>
 
-<script src="../js/thread.js"></script>
-</body>
+    <script src="../js/thread.js">
+    </script>
+
+    <script>getList()</script>
+  </body>
 </html>
