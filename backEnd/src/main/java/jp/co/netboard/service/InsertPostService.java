@@ -26,8 +26,6 @@ public class InsertPostService {
         BeanUtils.copyProperties(request, keijibanEntity);
 
         //投稿処理
-        keijibanEntity.setCreatedDatetime(new Date());
-
         keijibanRepository.save(keijibanEntity);
         return "投稿に成功しました";
     }

@@ -4,11 +4,13 @@ package jp.co.netboard.entity;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Data
 @Table(name = "trn_posts")
 public class KeijibanEntity {
@@ -42,14 +44,14 @@ public class KeijibanEntity {
     /**
      * 投稿日時
      */
-    @Column(name = "created_datetime")
+    @Column(name = "created_datetime", updatable = false)
     @CreatedDate
     private Date createdDatetime;
 
     /**
      * 更新日時
      */
-    @Column(name = "updated_datetime")
+    @Column(name = "updated_datetime", insertable = false)
     @LastModifiedDate
     private Date updatedDatetime;
 }

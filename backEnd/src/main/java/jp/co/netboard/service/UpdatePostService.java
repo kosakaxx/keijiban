@@ -41,8 +41,6 @@ public class UpdatePostService {
             //投稿更新処理
             KeijibanEntity keijibanEntityToUpdate = new KeijibanEntity();
             BeanUtils.copyProperties(request, keijibanEntityToUpdate);
-            keijibanEntityToUpdate.setCreatedDatetime(keijibanEntity.getCreatedDatetime());
-            keijibanEntityToUpdate.setUpdatedDatetime(new Date());
             keijibanRepository.save(keijibanEntityToUpdate);
             return "更新に成功しました";
 
