@@ -1,6 +1,7 @@
 package jp.co.netboard.controller;
 
 import jp.co.netboard.request.InsertPostRequest;
+import jp.co.netboard.response.PostResponse;
 import jp.co.netboard.service.InsertPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -26,7 +27,7 @@ public class InsertPostController {
     @PostMapping(value = "/post/insert",
             produces = {"application/json"},
             consumes = {"application/json"})
-    public String insertPost(@Validated @RequestBody InsertPostRequest request) {
+    public Object insertPost(@Validated @RequestBody InsertPostRequest request) {
         return insertPostService.insertPost(request);
     }
 }

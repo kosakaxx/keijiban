@@ -1,15 +1,13 @@
 package jp.co.netboard.response;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class PostResponse {
 
-    private String code;
+    //メッセージ
     private String message;
 
-    public PostResponse(String code,String messsage){
-        this.code = code;
-        this.message = messsage;
-    }
 }

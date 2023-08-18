@@ -2,6 +2,7 @@ package jp.co.netboard.controller;
 
 import jp.co.netboard.request.DeletePostRequest;
 import jp.co.netboard.request.UpdatePostRequest;
+import jp.co.netboard.response.PostResponse;
 import jp.co.netboard.service.DeletePostService;
 import jp.co.netboard.service.UpdatePostService;
 import org.hibernate.sql.Delete;
@@ -29,7 +30,8 @@ public class DeletePostController {
     @PostMapping(value = "/post/delete",
             produces = {"application/json"},
             consumes = {"application/json"})
-    public String deletePost(@Validated @RequestBody DeletePostRequest request) {
-        return deletePostService.deletePost(request);
+    public Object deletePost(@Validated @RequestBody DeletePostRequest request) {
+        String message = deletePostService.deletePost(request);
+        return PostResponse.builder().message(message).build();
     }
 }

@@ -1,6 +1,7 @@
 package jp.co.netboard.controller;
 
 import jp.co.netboard.request.UpdatePostRequest;
+import jp.co.netboard.response.PostResponse;
 import jp.co.netboard.service.UpdatePostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -26,7 +27,8 @@ public class UpdatePostController {
     @PostMapping(value = "/post/update",
             produces = {"application/json"},
             consumes = {"application/json"})
-    public String insertPost(@Validated @RequestBody UpdatePostRequest request) {
-        return updatePostService.updatePost(request);
+    public Object insertPost(@Validated @RequestBody UpdatePostRequest request) {
+        String message = updatePostService.updatePost(request);
+        return PostResponse.builder().message(message).build();
     }
 }
