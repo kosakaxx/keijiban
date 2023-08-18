@@ -1,5 +1,5 @@
 const getList = async () => {
-  await fetch('http://localhost:8080/post/list', {method: 'GET'})
+  await fetch('http://localhost:8080/post/list', {method: 'GET', headers: {'Content-Type': 'application/json'}})
     .then((res) => res.json())
     .then(json => {
       const {postList, postCount} = json
