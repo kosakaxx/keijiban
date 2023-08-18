@@ -40,11 +40,39 @@ const getList = async () => {
         const postActions = document.createElement('div')
         postActions.classList.add('post_actions')
 
+        const passInput = document.createElement('input')
+        passInput.setAttribute('type', 'text')
+        passInput.id = `passInput_${obj.postId}`
+
+        const editButton = document.createElement('button')
+        editButton.setAttribute('type', 'button')
+        editButton.innerText = '編集'
+        editButton.onclick = async () => {
+        }
 
         const deleteButton = document.createElement('button')
         deleteButton.setAttribute('type', 'button')
         deleteButton.innerText = '削除'
         deleteButton.onclick = async () => {
+          const requestBody = {
+            postId: obj.postId,
+            password: document.getElementById(`passInput_${obj.postId}`).value
+          }
+
+          await fetch('http://localhost:8080/post/delete', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+          })
+            .then((res) => res.json())
+            .then((json) => {
+              alert(json.message)
+            })
+            .catch((err) => {
+              alert(`投稿に失敗しました。エラー：${err.message}`);
+            })
         }
 
         idName.appendChild(postId)
@@ -54,6 +82,7 @@ const getList = async () => {
         header.appendChild(idName)
         header.appendChild(datetimeArea)
 
+        postActions.appendChild(passInput)
         postActions.appendChild(deleteButton)
 
         box.appendChild(header)
@@ -79,7 +108,7 @@ const sendPost = async () => {
     password: pass
   }
 
-  const response = await fetch('http://localhost:8080/post/insert', {
+  await fetch('http://localhost:8080/post/insert', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -87,15 +116,12 @@ const sendPost = async () => {
     body: JSON.stringify(requestBody)
   })
     .then((res) => res.json())
+    .then((json) => {
+      alert(json.message)
+    })
     .catch((err) => {
       alert(`投稿に失敗しました。エラー：${err.message}`);
     })
-
-  if (response.code === 200) {
-    console.log(response)
-
-    alert(`投稿に成功しました。`);
-  }
 }
 
 const updatePost = async () => {
@@ -111,7 +137,7 @@ const updatePost = async () => {
     password: pass
   }
 
-  const response = await fetch('http://localhost:8080/post/update', {
+  await fetch('http://localhost:8080/post/update', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -119,13 +145,10 @@ const updatePost = async () => {
     body: JSON.stringify(requestBody)
   })
     .then((res) => res.json())
+    .then((json) => {
+      alert(json.message)
+    })
     .catch((err) => {
       alert(`更新に失敗しました。エラー：${err.message}`);
     })
-
-  if (response.code === 200) {
-    console.log(response)
-
-    alert(`更新に成功しました。`);
-  }
 }
