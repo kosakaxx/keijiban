@@ -1,23 +1,13 @@
 package jp.co.netboard.controller;
 
-import java.sql.SQLException;
-
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@RestController
-public class ExceptionController extends ResponseEntityExceptionHandler {
+import java.sql.SQLException;
 
-    @RequestMapping(value = "/exception", method = RequestMethod.GET)
-    public void exception() throws Exception {
+public class ExceptionHandler extends ResponseEntityExceptionHandler {
 
-        throw new Exception();
-    }
 
     /**
      * SQLExceptionの例外処理
@@ -25,7 +15,7 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
      * @param e
      * @throws Exception
      */
-    @ExceptionHandler(SQLException.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(SQLException.class)
     private void sqlExceptionHandler(Exception e) {
         System.out.println("SQLException Handler");
         // ここでthrow e;してもexceptionHandlerにはいかない
@@ -34,7 +24,7 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
     /**
      * Runtime系の例外処理
      */
-    @ExceptionHandler(RuntimeException.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(RuntimeException.class)
     private void runtimeExceptionHandler(RuntimeException e) {
         e.printStackTrace();
         throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -43,7 +33,7 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
     /**
      * その他のException例外処理
      */
-    @ExceptionHandler(Exception.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
     private void exceptionHandler(Exception e) {
         System.out.println("Exception Handler");
     }
